@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+
+    {# Do not leave this in production! #}
+    User:
+    {{ dump(app.user) }}
+
+    {# Do not leave this in production! #}
+    Session:
+    {{ dump(app.session) }}
+
+    Hello {{ app.user.username }}
+    {% if 'ROLE_ADMIN' in app.user.roles %}
+        <button class="btn btn-primary">Edit</button>
+    {% endif %}
+    {% if 'ROLE_MANO_ROLE' in app.user.roles %}
+        <button class="btn btn-info">Comment</button>
+    {% endif %}
+
+{% endblock %}
